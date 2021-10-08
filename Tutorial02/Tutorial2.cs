@@ -128,5 +128,80 @@ namespace Tutorial02
             }
         }
 
+        //Question 12 | 13 | 14 - Switch Case Method
+        public void outputInformation04(object person)
+        {
+            switch (person)
+            {
+                case Professor professor:
+                    Console.WriteLine($"Professor {professor.name} {professor.lastName} " +
+                        $"teaches {String.Join<string>(", ", professor.teachesSubjects)}");
+                break;
+
+                case Student student:
+                    Console.WriteLine($"Student {student.name} {student.lastName} enrolled for courses " +
+                        $"{String.Join<int>(", ", student.courseCodes)}");
+                break;
+
+                default:
+                    Console.WriteLine("Unkown objected detected");
+                break;
+            }
+        }
+
+        //Question 15 - Switch Case (when) Method
+        public void outputInformation05(object person)
+        {
+            switch (person)
+            {
+                case Student student when student.courseCodes.Contains(203):
+                    Console.WriteLine($"Student {student.name} {student.lastName} is enrolled for course 204");
+                break;
+
+                case Student student:
+                    Console.WriteLine($"Student {student.name} {student.lastName} is enrolled for courses " +
+                        $"{String.Join<int>(", ", student.courseCodes)}");
+                break;
+
+                case Professor professor:
+                    Console.WriteLine($"Professor {professor.name} {professor.lastName} " +
+                        $"teaches {String.Join<string>(", ", professor.teachesSubjects)}");
+                break;
+
+                default:
+                    Console.WriteLine("Unknown objected detected");
+                break;
+            }
+        }
+
+        //Question 16 - Switch Case (when & null) Method
+        public void outputInformation06(object person)
+        {
+            switch (person)
+            {
+                case Student student when student.courseCodes.Contains(203):
+                    Console.WriteLine($"Student {student.name} {student.lastName} is enrolled for course 204");
+                    break;
+
+                case Student student:
+                    Console.WriteLine($"Student {student.name} {student.lastName} is enrolled for courses " +
+                        $"{String.Join<int>(", ", student.courseCodes)}");
+                    break;
+
+                case Professor professor:
+                    Console.WriteLine($"Professor {professor.name} {professor.lastName} " +
+                        $"teaches {String.Join<string>(", ", professor.teachesSubjects)}");
+                    break;
+
+                case null:
+                    Console.WriteLine($"Object {nameof(person)} is null");
+                break;
+
+                default:
+                    Console.WriteLine("Unknown objected detected");
+                break;
+            }
+        }
+
     }
 }
