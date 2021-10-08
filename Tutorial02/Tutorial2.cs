@@ -28,6 +28,9 @@ namespace Tutorial02
 
             Tutorial2 q7 = new Tutorial2();
             q7.question07();
+
+            Tutorial2 q10 = new Tutorial2();
+            q10.question09();
         }
 
         //Question 4
@@ -59,26 +62,31 @@ namespace Tutorial02
         //Question 7
         public void question07()
         {
-            Tutorial2 t3 = new Tutorial2();
-
-            //Student object - t2
             Student student3 = new Student();
             student3.name = "Yvonne";
             student3.lastName = "Perera";
             List<int> codes3 = new List<int> { 111, 222, 333 };
             student3.courseCodes = codes3;
-            t3.outputInformation02(student3);
+            outputInformation02(student3);
 
-            //Professor object - t2
             Professor professor3 = new Professor();
             professor3.name = "Rohan";
             professor3.lastName = "Lekamge";
             List<String> subjects3 = new List<String> { "Maths", "Science", "English" };
             professor3.teachesSubjects = subjects3;
-            t3.outputInformation02(professor3);
+            outputInformation02(professor3);
             Console.ReadLine();
         }
 
+        //Question 9 - Input
+        public void question09()
+        {
+            Student student4 = null;
+            outputInformation03(student4);
+            Console.ReadLine();
+        }
+        
+      
         //Question 3 
         public void outputInformation(object person)
         {
@@ -110,6 +118,15 @@ namespace Tutorial02
                 Console.WriteLine($"Professor {professor.name} {professor.lastName} teaches {String.Join<string>(", ", professor.teachesSubjects)}");
             }
         } 
+
+        //Question 9 - Method
+        public void outputInformation03(object person)
+        {
+            if(person is null)
+            {
+                Console.WriteLine($"Object {nameof(person)} is null");
+            }
+        }
 
     }
 }
